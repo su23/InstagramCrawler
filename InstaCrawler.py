@@ -55,3 +55,10 @@ class InstaCrawler:
             print("Downloading %s" % base_name)
             bytes = requests.get(url).content
             file.write(bytes)
+
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser(add_help=True)
+  parser.add_argument('username')
+  args = parser.parse_args()
+  insta = InstaCrawler(args.username)
+  insta.asyncStart()
